@@ -15,6 +15,10 @@
 #define tbi(var,mask)	(var & (1 << mask) )
 #define xbi(var,mask)	((var)^=(uint8_t)(1 << mask))
 
+#define setbit(port, bit)   (port |= (1 << bit))
+#define clearbit(port, bit) (port &= ~(1 << bit))
+#define xorbit(port, bit)   (port ^= (1 << bit))
+
 //hardware
 #define LED0_PIN B,4
 #define LED1_PIN B,5
