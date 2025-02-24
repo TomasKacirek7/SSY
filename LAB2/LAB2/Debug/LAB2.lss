@@ -1,0 +1,798 @@
+
+LAB2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         000000ea  00800200  00000436  000004aa  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000436  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000594  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005c4  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000070  00000000  00000000  00000604  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001aba  00000000  00000000  00000674  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00001483  00000000  00000000  0000212e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000633  00000000  00000000  000035b1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000120  00000000  00000000  00003be4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000a09  00000000  00000000  00003d04  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000003a4  00000000  00000000  0000470d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000060  00000000  00000000  00004ab1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	99 c0       	rjmp	.+306    	; 0x134 <__ctors_end>
+   2:	00 00       	nop
+   4:	39 c1       	rjmp	.+626    	; 0x278 <__vector_1>
+   6:	00 00       	nop
+   8:	ac c0       	rjmp	.+344    	; 0x162 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	aa c0       	rjmp	.+340    	; 0x162 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	a8 c0       	rjmp	.+336    	; 0x162 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	a6 c0       	rjmp	.+332    	; 0x162 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	a4 c0       	rjmp	.+328    	; 0x162 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	a2 c0       	rjmp	.+324    	; 0x162 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	a0 c0       	rjmp	.+320    	; 0x162 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	9e c0       	rjmp	.+316    	; 0x162 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	9c c0       	rjmp	.+312    	; 0x162 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	9a c0       	rjmp	.+308    	; 0x162 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	98 c0       	rjmp	.+304    	; 0x162 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	96 c0       	rjmp	.+300    	; 0x162 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	94 c0       	rjmp	.+296    	; 0x162 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	92 c0       	rjmp	.+292    	; 0x162 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	90 c0       	rjmp	.+288    	; 0x162 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	8e c0       	rjmp	.+284    	; 0x162 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	8c c0       	rjmp	.+280    	; 0x162 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	8a c0       	rjmp	.+276    	; 0x162 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	88 c0       	rjmp	.+272    	; 0x162 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	86 c0       	rjmp	.+268    	; 0x162 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	84 c0       	rjmp	.+264    	; 0x162 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	82 c0       	rjmp	.+260    	; 0x162 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	80 c0       	rjmp	.+256    	; 0x162 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	7e c0       	rjmp	.+252    	; 0x162 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	7c c0       	rjmp	.+248    	; 0x162 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	7a c0       	rjmp	.+244    	; 0x162 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	78 c0       	rjmp	.+240    	; 0x162 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	76 c0       	rjmp	.+236    	; 0x162 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	74 c0       	rjmp	.+232    	; 0x162 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	72 c0       	rjmp	.+228    	; 0x162 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	70 c0       	rjmp	.+224    	; 0x162 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	6e c0       	rjmp	.+220    	; 0x162 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	6c c0       	rjmp	.+216    	; 0x162 <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	6a c0       	rjmp	.+212    	; 0x162 <__bad_interrupt>
+  8e:	00 00       	nop
+  90:	68 c0       	rjmp	.+208    	; 0x162 <__bad_interrupt>
+  92:	00 00       	nop
+  94:	66 c0       	rjmp	.+204    	; 0x162 <__bad_interrupt>
+  96:	00 00       	nop
+  98:	64 c0       	rjmp	.+200    	; 0x162 <__bad_interrupt>
+  9a:	00 00       	nop
+  9c:	62 c0       	rjmp	.+196    	; 0x162 <__bad_interrupt>
+  9e:	00 00       	nop
+  a0:	60 c0       	rjmp	.+192    	; 0x162 <__bad_interrupt>
+  a2:	00 00       	nop
+  a4:	5e c0       	rjmp	.+188    	; 0x162 <__bad_interrupt>
+  a6:	00 00       	nop
+  a8:	5c c0       	rjmp	.+184    	; 0x162 <__bad_interrupt>
+  aa:	00 00       	nop
+  ac:	5a c0       	rjmp	.+180    	; 0x162 <__bad_interrupt>
+  ae:	00 00       	nop
+  b0:	58 c0       	rjmp	.+176    	; 0x162 <__bad_interrupt>
+  b2:	00 00       	nop
+  b4:	56 c0       	rjmp	.+172    	; 0x162 <__bad_interrupt>
+  b6:	00 00       	nop
+  b8:	54 c0       	rjmp	.+168    	; 0x162 <__bad_interrupt>
+  ba:	00 00       	nop
+  bc:	52 c0       	rjmp	.+164    	; 0x162 <__bad_interrupt>
+  be:	00 00       	nop
+  c0:	50 c0       	rjmp	.+160    	; 0x162 <__bad_interrupt>
+  c2:	00 00       	nop
+  c4:	4e c0       	rjmp	.+156    	; 0x162 <__bad_interrupt>
+  c6:	00 00       	nop
+  c8:	4c c0       	rjmp	.+152    	; 0x162 <__bad_interrupt>
+  ca:	00 00       	nop
+  cc:	4a c0       	rjmp	.+148    	; 0x162 <__bad_interrupt>
+  ce:	00 00       	nop
+  d0:	48 c0       	rjmp	.+144    	; 0x162 <__bad_interrupt>
+  d2:	00 00       	nop
+  d4:	46 c0       	rjmp	.+140    	; 0x162 <__bad_interrupt>
+  d6:	00 00       	nop
+  d8:	44 c0       	rjmp	.+136    	; 0x162 <__bad_interrupt>
+  da:	00 00       	nop
+  dc:	42 c0       	rjmp	.+132    	; 0x162 <__bad_interrupt>
+  de:	00 00       	nop
+  e0:	40 c0       	rjmp	.+128    	; 0x162 <__bad_interrupt>
+  e2:	00 00       	nop
+  e4:	3e c0       	rjmp	.+124    	; 0x162 <__bad_interrupt>
+  e6:	00 00       	nop
+  e8:	3c c0       	rjmp	.+120    	; 0x162 <__bad_interrupt>
+  ea:	00 00       	nop
+  ec:	3a c0       	rjmp	.+116    	; 0x162 <__bad_interrupt>
+  ee:	00 00       	nop
+  f0:	38 c0       	rjmp	.+112    	; 0x162 <__bad_interrupt>
+  f2:	00 00       	nop
+  f4:	36 c0       	rjmp	.+108    	; 0x162 <__bad_interrupt>
+  f6:	00 00       	nop
+  f8:	34 c0       	rjmp	.+104    	; 0x162 <__bad_interrupt>
+  fa:	00 00       	nop
+  fc:	32 c0       	rjmp	.+100    	; 0x162 <__bad_interrupt>
+  fe:	00 00       	nop
+ 100:	30 c0       	rjmp	.+96     	; 0x162 <__bad_interrupt>
+ 102:	00 00       	nop
+ 104:	2e c0       	rjmp	.+92     	; 0x162 <__bad_interrupt>
+ 106:	00 00       	nop
+ 108:	2c c0       	rjmp	.+88     	; 0x162 <__bad_interrupt>
+ 10a:	00 00       	nop
+ 10c:	2a c0       	rjmp	.+84     	; 0x162 <__bad_interrupt>
+ 10e:	00 00       	nop
+ 110:	28 c0       	rjmp	.+80     	; 0x162 <__bad_interrupt>
+ 112:	00 00       	nop
+ 114:	26 c0       	rjmp	.+76     	; 0x162 <__bad_interrupt>
+ 116:	00 00       	nop
+ 118:	24 c0       	rjmp	.+72     	; 0x162 <__bad_interrupt>
+ 11a:	00 00       	nop
+ 11c:	22 c0       	rjmp	.+68     	; 0x162 <__bad_interrupt>
+ 11e:	00 00       	nop
+ 120:	20 c0       	rjmp	.+64     	; 0x162 <__bad_interrupt>
+ 122:	00 00       	nop
+ 124:	1e c0       	rjmp	.+60     	; 0x162 <__bad_interrupt>
+ 126:	00 00       	nop
+ 128:	1c c0       	rjmp	.+56     	; 0x162 <__bad_interrupt>
+ 12a:	00 00       	nop
+ 12c:	1a c0       	rjmp	.+52     	; 0x162 <__bad_interrupt>
+ 12e:	00 00       	nop
+ 130:	18 c0       	rjmp	.+48     	; 0x162 <__bad_interrupt>
+	...
+
+00000134 <__ctors_end>:
+ 134:	11 24       	eor	r1, r1
+ 136:	1f be       	out	0x3f, r1	; 63
+ 138:	cf ef       	ldi	r28, 0xFF	; 255
+ 13a:	d1 e8       	ldi	r29, 0x81	; 129
+ 13c:	de bf       	out	0x3e, r29	; 62
+ 13e:	cd bf       	out	0x3d, r28	; 61
+ 140:	00 e0       	ldi	r16, 0x00	; 0
+ 142:	0c bf       	out	0x3c, r16	; 60
+
+00000144 <__do_copy_data>:
+ 144:	12 e0       	ldi	r17, 0x02	; 2
+ 146:	a0 e0       	ldi	r26, 0x00	; 0
+ 148:	b2 e0       	ldi	r27, 0x02	; 2
+ 14a:	e6 e3       	ldi	r30, 0x36	; 54
+ 14c:	f4 e0       	ldi	r31, 0x04	; 4
+ 14e:	00 e0       	ldi	r16, 0x00	; 0
+ 150:	0b bf       	out	0x3b, r16	; 59
+ 152:	02 c0       	rjmp	.+4      	; 0x158 <__do_copy_data+0x14>
+ 154:	07 90       	elpm	r0, Z+
+ 156:	0d 92       	st	X+, r0
+ 158:	aa 3e       	cpi	r26, 0xEA	; 234
+ 15a:	b1 07       	cpc	r27, r17
+ 15c:	d9 f7       	brne	.-10     	; 0x154 <__do_copy_data+0x10>
+ 15e:	b4 d0       	rcall	.+360    	; 0x2c8 <main>
+ 160:	68 c1       	rjmp	.+720    	; 0x432 <_exit>
+
+00000162 <__bad_interrupt>:
+ 162:	4e cf       	rjmp	.-356    	; 0x0 <__vectors>
+
+00000164 <USART_Init>:
+#include "makra.h"  // P?ipojení makra pro ovládání LED a bitových operací
+
+#define BUTTON_PIN    PF0  // Pin pro tla?ítko (INT0)
+
+void USART_Init(uint16_t baud) {
+	uint16_t ubrr = F_CPU / 16 / baud - 1;
+ 164:	9c 01       	movw	r18, r24
+ 166:	40 e0       	ldi	r20, 0x00	; 0
+ 168:	50 e0       	ldi	r21, 0x00	; 0
+ 16a:	60 e2       	ldi	r22, 0x20	; 32
+ 16c:	71 ea       	ldi	r23, 0xA1	; 161
+ 16e:	87 e0       	ldi	r24, 0x07	; 7
+ 170:	90 e0       	ldi	r25, 0x00	; 0
+ 172:	21 d1       	rcall	.+578    	; 0x3b6 <__divmodsi4>
+ 174:	21 50       	subi	r18, 0x01	; 1
+ 176:	31 09       	sbc	r19, r1
+	UBRR1H = (uint8_t)(ubrr >> 8);
+ 178:	30 93 cd 00 	sts	0x00CD, r19	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7c00cd>
+	UBRR1L = (uint8_t)ubrr;
+ 17c:	20 93 cc 00 	sts	0x00CC, r18	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7c00cc>
+	UCSR1B = (1 << RXEN1) | (1 << TXEN1);
+ 180:	88 e1       	ldi	r24, 0x18	; 24
+ 182:	80 93 c9 00 	sts	0x00C9, r24	; 0x8000c9 <__TEXT_REGION_LENGTH__+0x7c00c9>
+	UCSR1C = (1 << UCSZ01) | (1 << UCSZ00);
+ 186:	86 e0       	ldi	r24, 0x06	; 6
+ 188:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7c00ca>
+ 18c:	08 95       	ret
+
+0000018e <USART_Transmit>:
+}
+
+void USART_Transmit(uint8_t data) {
+	while (!(UCSR1A & (1 << UDRE1))) { }
+ 18e:	90 91 c8 00 	lds	r25, 0x00C8	; 0x8000c8 <__TEXT_REGION_LENGTH__+0x7c00c8>
+ 192:	95 ff       	sbrs	r25, 5
+ 194:	fc cf       	rjmp	.-8      	; 0x18e <USART_Transmit>
+	UDR1 = data;
+ 196:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7c00ce>
+ 19a:	08 95       	ret
+
+0000019c <USART_SendString>:
+}
+
+void USART_SendString(const char *text) {
+ 19c:	cf 93       	push	r28
+ 19e:	df 93       	push	r29
+ 1a0:	ec 01       	movw	r28, r24
+	while (*text) {
+ 1a2:	02 c0       	rjmp	.+4      	; 0x1a8 <USART_SendString+0xc>
+		USART_Transmit(*text++);
+ 1a4:	21 96       	adiw	r28, 0x01	; 1
+ 1a6:	f3 df       	rcall	.-26     	; 0x18e <USART_Transmit>
+	while (!(UCSR1A & (1 << UDRE1))) { }
+	UDR1 = data;
+}
+
+void USART_SendString(const char *text) {
+	while (*text) {
+ 1a8:	88 81       	ld	r24, Y
+ 1aa:	81 11       	cpse	r24, r1
+ 1ac:	fb cf       	rjmp	.-10     	; 0x1a4 <USART_SendString+0x8>
+		USART_Transmit(*text++);
+	}
+}
+ 1ae:	df 91       	pop	r29
+ 1b0:	cf 91       	pop	r28
+ 1b2:	08 95       	ret
+
+000001b4 <USART_Receive>:
+
+/* Funkce pro p?ijetí jednoho znaku */
+uint8_t USART_Receive(void) {
+	while (!(UCSR1A & (1 << RXC1))) { }
+ 1b4:	80 91 c8 00 	lds	r24, 0x00C8	; 0x8000c8 <__TEXT_REGION_LENGTH__+0x7c00c8>
+ 1b8:	88 23       	and	r24, r24
+ 1ba:	e4 f7       	brge	.-8      	; 0x1b4 <USART_Receive>
+	return UDR1;
+ 1bc:	80 91 ce 00 	lds	r24, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7c00ce>
+}
+ 1c0:	08 95       	ret
+
+000001c2 <clear_screen>:
+
+/* Funkce pro vymazání obrazovky */
+void clear_screen(void) {
+	USART_SendString("\033[2J");  // Escape sekvence pro vymazání obrazovky
+ 1c2:	80 e0       	ldi	r24, 0x00	; 0
+ 1c4:	92 e0       	ldi	r25, 0x02	; 2
+ 1c6:	ea cf       	rjmp	.-44     	; 0x19c <USART_SendString>
+ 1c8:	08 95       	ret
+
+000001ca <set_red>:
+}
+
+/* Funkce pro nastavení ?ervené barvy textu */
+void set_red(void) {
+	USART_SendString("\033[31m");  // Escape sekvence pro ?ervenou barvu
+ 1ca:	85 e0       	ldi	r24, 0x05	; 5
+ 1cc:	92 e0       	ldi	r25, 0x02	; 2
+ 1ce:	e6 cf       	rjmp	.-52     	; 0x19c <USART_SendString>
+ 1d0:	08 95       	ret
+
+000001d2 <set_magenta>:
+}
+
+/* Funkce pro nastavení magentové barvy textu */
+void set_magenta(void) {
+	USART_SendString("\033[35m");  // Escape sekvence pro magentovou barvu
+ 1d2:	8b e0       	ldi	r24, 0x0B	; 11
+ 1d4:	92 e0       	ldi	r25, 0x02	; 2
+ 1d6:	e2 cf       	rjmp	.-60     	; 0x19c <USART_SendString>
+ 1d8:	08 95       	ret
+
+000001da <reset_color>:
+}
+
+/* Funkce pro resetování barvy textu */
+void reset_color(void) {
+	USART_SendString("\033[0m");  // Escape sekvence pro resetování barvy
+ 1da:	81 e1       	ldi	r24, 0x11	; 17
+ 1dc:	92 e0       	ldi	r25, 0x02	; 2
+ 1de:	de cf       	rjmp	.-68     	; 0x19c <USART_SendString>
+ 1e0:	08 95       	ret
+
+000001e2 <LED_Blink>:
+}
+
+void LED_Blink(void) {
+	DDRB = 0b01110000;  // Nastavení pin? 4, 5, 6 jako výstupy
+ 1e2:	80 e7       	ldi	r24, 0x70	; 112
+ 1e4:	84 b9       	out	0x04, r24	; 4
+	setbit(PORTB, 4);
+ 1e6:	85 b1       	in	r24, 0x05	; 5
+ 1e8:	80 61       	ori	r24, 0x10	; 16
+ 1ea:	85 b9       	out	0x05, r24	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1ec:	2f ef       	ldi	r18, 0xFF	; 255
+ 1ee:	84 e3       	ldi	r24, 0x34	; 52
+ 1f0:	9c e0       	ldi	r25, 0x0C	; 12
+ 1f2:	21 50       	subi	r18, 0x01	; 1
+ 1f4:	80 40       	sbci	r24, 0x00	; 0
+ 1f6:	90 40       	sbci	r25, 0x00	; 0
+ 1f8:	e1 f7       	brne	.-8      	; 0x1f2 <LED_Blink+0x10>
+ 1fa:	00 c0       	rjmp	.+0      	; 0x1fc <LED_Blink+0x1a>
+ 1fc:	00 00       	nop
+	_delay_ms(500);
+	clearbit(PORTB, 4);
+ 1fe:	85 b1       	in	r24, 0x05	; 5
+ 200:	8f 7e       	andi	r24, 0xEF	; 239
+ 202:	85 b9       	out	0x05, r24	; 5
+ 204:	2f ef       	ldi	r18, 0xFF	; 255
+ 206:	84 e3       	ldi	r24, 0x34	; 52
+ 208:	9c e0       	ldi	r25, 0x0C	; 12
+ 20a:	21 50       	subi	r18, 0x01	; 1
+ 20c:	80 40       	sbci	r24, 0x00	; 0
+ 20e:	90 40       	sbci	r25, 0x00	; 0
+ 210:	e1 f7       	brne	.-8      	; 0x20a <LED_Blink+0x28>
+ 212:	00 c0       	rjmp	.+0      	; 0x214 <LED_Blink+0x32>
+ 214:	00 00       	nop
+	_delay_ms(500);
+	setbit(PORTB, 5);
+ 216:	85 b1       	in	r24, 0x05	; 5
+ 218:	80 62       	ori	r24, 0x20	; 32
+ 21a:	85 b9       	out	0x05, r24	; 5
+ 21c:	2f ef       	ldi	r18, 0xFF	; 255
+ 21e:	84 e3       	ldi	r24, 0x34	; 52
+ 220:	9c e0       	ldi	r25, 0x0C	; 12
+ 222:	21 50       	subi	r18, 0x01	; 1
+ 224:	80 40       	sbci	r24, 0x00	; 0
+ 226:	90 40       	sbci	r25, 0x00	; 0
+ 228:	e1 f7       	brne	.-8      	; 0x222 <LED_Blink+0x40>
+ 22a:	00 c0       	rjmp	.+0      	; 0x22c <LED_Blink+0x4a>
+ 22c:	00 00       	nop
+	_delay_ms(500);
+	clearbit(PORTB, 5);
+ 22e:	85 b1       	in	r24, 0x05	; 5
+ 230:	8f 7d       	andi	r24, 0xDF	; 223
+ 232:	85 b9       	out	0x05, r24	; 5
+ 234:	2f ef       	ldi	r18, 0xFF	; 255
+ 236:	84 e3       	ldi	r24, 0x34	; 52
+ 238:	9c e0       	ldi	r25, 0x0C	; 12
+ 23a:	21 50       	subi	r18, 0x01	; 1
+ 23c:	80 40       	sbci	r24, 0x00	; 0
+ 23e:	90 40       	sbci	r25, 0x00	; 0
+ 240:	e1 f7       	brne	.-8      	; 0x23a <LED_Blink+0x58>
+ 242:	00 c0       	rjmp	.+0      	; 0x244 <LED_Blink+0x62>
+ 244:	00 00       	nop
+	_delay_ms(500);
+	setbit(PORTB, 6);
+ 246:	85 b1       	in	r24, 0x05	; 5
+ 248:	80 64       	ori	r24, 0x40	; 64
+ 24a:	85 b9       	out	0x05, r24	; 5
+ 24c:	2f ef       	ldi	r18, 0xFF	; 255
+ 24e:	84 e3       	ldi	r24, 0x34	; 52
+ 250:	9c e0       	ldi	r25, 0x0C	; 12
+ 252:	21 50       	subi	r18, 0x01	; 1
+ 254:	80 40       	sbci	r24, 0x00	; 0
+ 256:	90 40       	sbci	r25, 0x00	; 0
+ 258:	e1 f7       	brne	.-8      	; 0x252 <LED_Blink+0x70>
+ 25a:	00 c0       	rjmp	.+0      	; 0x25c <LED_Blink+0x7a>
+ 25c:	00 00       	nop
+	_delay_ms(500);
+	clearbit(PORTB, 6);
+ 25e:	85 b1       	in	r24, 0x05	; 5
+ 260:	8f 7b       	andi	r24, 0xBF	; 191
+ 262:	85 b9       	out	0x05, r24	; 5
+ 264:	2f ef       	ldi	r18, 0xFF	; 255
+ 266:	84 e3       	ldi	r24, 0x34	; 52
+ 268:	9c e0       	ldi	r25, 0x0C	; 12
+ 26a:	21 50       	subi	r18, 0x01	; 1
+ 26c:	80 40       	sbci	r24, 0x00	; 0
+ 26e:	90 40       	sbci	r25, 0x00	; 0
+ 270:	e1 f7       	brne	.-8      	; 0x26a <LED_Blink+0x88>
+ 272:	00 c0       	rjmp	.+0      	; 0x274 <LED_Blink+0x92>
+ 274:	00 00       	nop
+ 276:	08 95       	ret
+
+00000278 <__vector_1>:
+	_delay_ms(500);
+}
+
+// P?erušení pro detekci stisku tla?ítka
+ISR(INT0_vect) {
+ 278:	1f 92       	push	r1
+ 27a:	0f 92       	push	r0
+ 27c:	0f b6       	in	r0, 0x3f	; 63
+ 27e:	0f 92       	push	r0
+ 280:	11 24       	eor	r1, r1
+ 282:	0b b6       	in	r0, 0x3b	; 59
+ 284:	0f 92       	push	r0
+ 286:	2f 93       	push	r18
+ 288:	3f 93       	push	r19
+ 28a:	4f 93       	push	r20
+ 28c:	5f 93       	push	r21
+ 28e:	6f 93       	push	r22
+ 290:	7f 93       	push	r23
+ 292:	8f 93       	push	r24
+ 294:	9f 93       	push	r25
+ 296:	af 93       	push	r26
+ 298:	bf 93       	push	r27
+ 29a:	ef 93       	push	r30
+ 29c:	ff 93       	push	r31
+	USART_Transmit('1');  // Odeslání znaku '1' p?i stisku tla?ítka
+ 29e:	81 e3       	ldi	r24, 0x31	; 49
+ 2a0:	76 df       	rcall	.-276    	; 0x18e <USART_Transmit>
+}
+ 2a2:	ff 91       	pop	r31
+ 2a4:	ef 91       	pop	r30
+ 2a6:	bf 91       	pop	r27
+ 2a8:	af 91       	pop	r26
+ 2aa:	9f 91       	pop	r25
+ 2ac:	8f 91       	pop	r24
+ 2ae:	7f 91       	pop	r23
+ 2b0:	6f 91       	pop	r22
+ 2b2:	5f 91       	pop	r21
+ 2b4:	4f 91       	pop	r20
+ 2b6:	3f 91       	pop	r19
+ 2b8:	2f 91       	pop	r18
+ 2ba:	0f 90       	pop	r0
+ 2bc:	0b be       	out	0x3b, r0	; 59
+ 2be:	0f 90       	pop	r0
+ 2c0:	0f be       	out	0x3f, r0	; 63
+ 2c2:	0f 90       	pop	r0
+ 2c4:	1f 90       	pop	r1
+ 2c6:	18 95       	reti
+
+000002c8 <main>:
+
+int main(void) {
+ 2c8:	cf 93       	push	r28
+	// Inicializace USART s baudrate 38400
+	USART_Init(38400);
+ 2ca:	80 e0       	ldi	r24, 0x00	; 0
+ 2cc:	96 e9       	ldi	r25, 0x96	; 150
+ 2ce:	4a df       	rcall	.-364    	; 0x164 <USART_Init>
+
+	// Nastavení p?erušení pro tla?ítko (INT0)
+	EIMSK |= (1 << INT0);    // Povolení p?erušení INT0
+ 2d0:	8d b3       	in	r24, 0x1d	; 29
+ 2d2:	81 60       	ori	r24, 0x01	; 1
+ 2d4:	8d bb       	out	0x1d, r24	; 29
+	EICRA |= (1 << ISC01);   // Nastavení pro spušt?ní p?erušení p?i poklesu signálu (tla?ítko)
+ 2d6:	e9 e6       	ldi	r30, 0x69	; 105
+ 2d8:	f0 e0       	ldi	r31, 0x00	; 0
+ 2da:	80 81       	ld	r24, Z
+ 2dc:	82 60       	ori	r24, 0x02	; 2
+ 2de:	80 83       	st	Z, r24
+
+	// Nastavení pin? pro tla?ítko
+	DDRD &= ~(1 << BUTTON_PIN);  // Nastavení pinu pro tla?ítko jako vstup
+ 2e0:	8a b1       	in	r24, 0x0a	; 10
+ 2e2:	8e 7f       	andi	r24, 0xFE	; 254
+ 2e4:	8a b9       	out	0x0a, r24	; 10
+	PORTD |= (1 << BUTTON_PIN);  // Aktivace pull-up rezistoru na tla?ítku
+ 2e6:	8b b1       	in	r24, 0x0b	; 11
+ 2e8:	81 60       	ori	r24, 0x01	; 1
+ 2ea:	8b b9       	out	0x0b, r24	; 11
+
+	// Povoleni globalnich preruseni
+	sei();
+
+	// Nastavení ?ervené barvy pro celý text
+	set_red();
+ 2ec:	78 94       	sei
+ 2ee:	6d df       	rcall	.-294    	; 0x1ca <set_red>
+
+	// Zobrazení MENU s popisem voleb
+	USART_SendString("MENU:\r\n");
+ 2f0:	86 e1       	ldi	r24, 0x16	; 22
+ 2f2:	92 e0       	ldi	r25, 0x02	; 2
+ 2f4:	53 df       	rcall	.-346    	; 0x19c <USART_SendString>
+	USART_SendString("0: Ukonceni programu\r\n");
+ 2f6:	8e e1       	ldi	r24, 0x1E	; 30
+ 2f8:	92 e0       	ldi	r25, 0x02	; 2
+ 2fa:	50 df       	rcall	.-352    	; 0x19c <USART_SendString>
+	USART_SendString("1: Vypis male abecedy\r\n");
+ 2fc:	85 e3       	ldi	r24, 0x35	; 53
+ 2fe:	92 e0       	ldi	r25, 0x02	; 2
+ 300:	4d df       	rcall	.-358    	; 0x19c <USART_SendString>
+	USART_SendString("2: Vypis velke abecedy\r\n");
+ 302:	8d e4       	ldi	r24, 0x4D	; 77
+ 304:	92 e0       	ldi	r25, 0x02	; 2
+ 306:	4a df       	rcall	.-364    	; 0x19c <USART_SendString>
+	USART_SendString("3: Blikani LED 3x\r\n");
+ 308:	86 e6       	ldi	r24, 0x66	; 102
+ 30a:	92 e0       	ldi	r25, 0x02	; 2
+ 30c:	47 df       	rcall	.-370    	; 0x19c <USART_SendString>
+	USART_SendString("4: Vymazat obrazovku a zobrazit MENU\r\n");
+ 30e:	8a e7       	ldi	r24, 0x7A	; 122
+ 310:	92 e0       	ldi	r25, 0x02	; 2
+ 312:	44 df       	rcall	.-376    	; 0x19c <USART_SendString>
+ 314:	4f df       	rcall	.-354    	; 0x1b4 <USART_Receive>
+
+	while (1) {
+		uint8_t recv = USART_Receive();  // Cekáme na p?íkaz od uživatele
+ 316:	82 33       	cpi	r24, 0x32	; 50
+ 318:	d1 f0       	breq	.+52     	; 0x34e <main+0x86>
+
+		// Reakce na vstupy
+		switch (recv) {
+ 31a:	30 f4       	brcc	.+12     	; 0x328 <main+0x60>
+ 31c:	80 33       	cpi	r24, 0x30	; 48
+ 31e:	09 f4       	brne	.+2      	; 0x322 <main+0x5a>
+ 320:	43 c0       	rjmp	.+134    	; 0x3a8 <main+0xe0>
+ 322:	81 33       	cpi	r24, 0x31	; 49
+ 324:	31 f0       	breq	.+12     	; 0x332 <main+0x6a>
+ 326:	3c c0       	rjmp	.+120    	; 0x3a0 <main+0xd8>
+ 328:	83 33       	cpi	r24, 0x33	; 51
+ 32a:	f9 f0       	breq	.+62     	; 0x36a <main+0xa2>
+ 32c:	84 33       	cpi	r24, 0x34	; 52
+ 32e:	11 f1       	breq	.+68     	; 0x374 <main+0xac>
+ 330:	37 c0       	rjmp	.+110    	; 0x3a0 <main+0xd8>
+			USART_SendString("Program ukoncen.\r\n");
+			return 0;
+			
+			case '1':
+			// Vypis male abecedy
+			set_magenta();  // Nastavení magentové barvy pro abecedu
+ 332:	4f df       	rcall	.-354    	; 0x1d2 <set_magenta>
+			for (char c = 'a'; c <= 'z'; c++) {
+ 334:	c1 e6       	ldi	r28, 0x61	; 97
+				USART_Transmit(c);
+ 336:	03 c0       	rjmp	.+6      	; 0x33e <main+0x76>
+ 338:	8c 2f       	mov	r24, r28
+			return 0;
+			
+			case '1':
+			// Vypis male abecedy
+			set_magenta();  // Nastavení magentové barvy pro abecedu
+			for (char c = 'a'; c <= 'z'; c++) {
+ 33a:	29 df       	rcall	.-430    	; 0x18e <USART_Transmit>
+ 33c:	cf 5f       	subi	r28, 0xFF	; 255
+				USART_Transmit(c);
+			}
+			USART_Transmit('\r');
+ 33e:	cb 37       	cpi	r28, 0x7B	; 123
+ 340:	d8 f3       	brcs	.-10     	; 0x338 <main+0x70>
+ 342:	8d e0       	ldi	r24, 0x0D	; 13
+			USART_Transmit('\n');
+ 344:	24 df       	rcall	.-440    	; 0x18e <USART_Transmit>
+ 346:	8a e0       	ldi	r24, 0x0A	; 10
+			reset_color();  // Resetování barvy
+ 348:	22 df       	rcall	.-444    	; 0x18e <USART_Transmit>
+			break;
+ 34a:	47 df       	rcall	.-370    	; 0x1da <reset_color>
+			
+			case '2':
+			// Vypis velke abecedy
+			set_magenta();  // Nastavení magentové barvy pro abecedu
+ 34c:	e3 cf       	rjmp	.-58     	; 0x314 <main+0x4c>
+ 34e:	41 df       	rcall	.-382    	; 0x1d2 <set_magenta>
+			for (char c = 'A'; c <= 'Z'; c++) {
+ 350:	c1 e4       	ldi	r28, 0x41	; 65
+				USART_Transmit(c);
+ 352:	03 c0       	rjmp	.+6      	; 0x35a <main+0x92>
+ 354:	8c 2f       	mov	r24, r28
+			break;
+			
+			case '2':
+			// Vypis velke abecedy
+			set_magenta();  // Nastavení magentové barvy pro abecedu
+			for (char c = 'A'; c <= 'Z'; c++) {
+ 356:	1b df       	rcall	.-458    	; 0x18e <USART_Transmit>
+ 358:	cf 5f       	subi	r28, 0xFF	; 255
+				USART_Transmit(c);
+			}
+			USART_Transmit('\r');
+ 35a:	cb 35       	cpi	r28, 0x5B	; 91
+ 35c:	d8 f3       	brcs	.-10     	; 0x354 <main+0x8c>
+			USART_Transmit('\n');
+ 35e:	8d e0       	ldi	r24, 0x0D	; 13
+ 360:	16 df       	rcall	.-468    	; 0x18e <USART_Transmit>
+			reset_color();  // Resetování barvy
+ 362:	8a e0       	ldi	r24, 0x0A	; 10
+ 364:	14 df       	rcall	.-472    	; 0x18e <USART_Transmit>
+			break;
+			
+			case '3':
+			// Blikání LED
+			USART_SendString("Blikani LED.\r\n");
+ 366:	39 df       	rcall	.-398    	; 0x1da <reset_color>
+ 368:	d5 cf       	rjmp	.-86     	; 0x314 <main+0x4c>
+ 36a:	84 eb       	ldi	r24, 0xB4	; 180
+			LED_Blink();
+ 36c:	92 e0       	ldi	r25, 0x02	; 2
+			break;
+			
+			case '4':
+			// Vymazání obrazovky a zobrazení menu
+			clear_screen();
+ 36e:	16 df       	rcall	.-468    	; 0x19c <USART_SendString>
+ 370:	38 df       	rcall	.-400    	; 0x1e2 <LED_Blink>
+			set_red();  // Nastavení ?ervené barvy pro menu
+ 372:	d0 cf       	rjmp	.-96     	; 0x314 <main+0x4c>
+			USART_SendString("MENU:\r\n");
+ 374:	26 df       	rcall	.-436    	; 0x1c2 <clear_screen>
+ 376:	29 df       	rcall	.-430    	; 0x1ca <set_red>
+ 378:	86 e1       	ldi	r24, 0x16	; 22
+			USART_SendString("0: Ukonceni programu\r\n");
+ 37a:	92 e0       	ldi	r25, 0x02	; 2
+ 37c:	0f df       	rcall	.-482    	; 0x19c <USART_SendString>
+ 37e:	8e e1       	ldi	r24, 0x1E	; 30
+ 380:	92 e0       	ldi	r25, 0x02	; 2
+			USART_SendString("1: Vypis male abecedy\r\n");
+ 382:	0c df       	rcall	.-488    	; 0x19c <USART_SendString>
+ 384:	85 e3       	ldi	r24, 0x35	; 53
+ 386:	92 e0       	ldi	r25, 0x02	; 2
+ 388:	09 df       	rcall	.-494    	; 0x19c <USART_SendString>
+			USART_SendString("2: Vypis velke abecedy\r\n");
+ 38a:	8d e4       	ldi	r24, 0x4D	; 77
+ 38c:	92 e0       	ldi	r25, 0x02	; 2
+ 38e:	06 df       	rcall	.-500    	; 0x19c <USART_SendString>
+ 390:	86 e6       	ldi	r24, 0x66	; 102
+			USART_SendString("3: Blikani LED 3x\r\n");
+ 392:	92 e0       	ldi	r25, 0x02	; 2
+ 394:	03 df       	rcall	.-506    	; 0x19c <USART_SendString>
+ 396:	8a e7       	ldi	r24, 0x7A	; 122
+ 398:	92 e0       	ldi	r25, 0x02	; 2
+			USART_SendString("4: Vymazat obrazovku a zobrazit MENU\r\n");
+ 39a:	00 df       	rcall	.-512    	; 0x19c <USART_SendString>
+ 39c:	1e df       	rcall	.-452    	; 0x1da <reset_color>
+ 39e:	ba cf       	rjmp	.-140    	; 0x314 <main+0x4c>
+ 3a0:	83 ec       	ldi	r24, 0xC3	; 195
+			reset_color();  // Resetování barvy
+ 3a2:	92 e0       	ldi	r25, 0x02	; 2
+ 3a4:	fb de       	rcall	.-522    	; 0x19c <USART_SendString>
+			break;
+ 3a6:	b6 cf       	rjmp	.-148    	; 0x314 <main+0x4c>
+
+			default:
+			// Ošet?ení neznámého vstupu
+			USART_SendString("Neznamy vstup, zadejte hodnotu 0-4.\r\n");
+ 3a8:	81 ea       	ldi	r24, 0xA1	; 161
+ 3aa:	92 e0       	ldi	r25, 0x02	; 2
+ 3ac:	f7 de       	rcall	.-530    	; 0x19c <USART_SendString>
+ 3ae:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+ 3b0:	90 e0       	ldi	r25, 0x00	; 0
+
+		// Reakce na vstupy
+		switch (recv) {
+			case '0':
+			// Ukon?ení programu
+			USART_SendString("Program ukoncen.\r\n");
+ 3b2:	cf 91       	pop	r28
+ 3b4:	08 95       	ret
+
+000003b6 <__divmodsi4>:
+ 3b6:	05 2e       	mov	r0, r21
+ 3b8:	97 fb       	bst	r25, 7
+			break;
+		}
+	}
+
+	return 0;
+}
+ 3ba:	16 f4       	brtc	.+4      	; 0x3c0 <__divmodsi4+0xa>
+ 3bc:	00 94       	com	r0
+ 3be:	0f d0       	rcall	.+30     	; 0x3de <__negsi2>
+ 3c0:	57 fd       	sbrc	r21, 7
+ 3c2:	05 d0       	rcall	.+10     	; 0x3ce <__divmodsi4_neg2>
+ 3c4:	14 d0       	rcall	.+40     	; 0x3ee <__udivmodsi4>
+ 3c6:	07 fc       	sbrc	r0, 7
+ 3c8:	02 d0       	rcall	.+4      	; 0x3ce <__divmodsi4_neg2>
+ 3ca:	46 f4       	brtc	.+16     	; 0x3dc <__divmodsi4_exit>
+ 3cc:	08 c0       	rjmp	.+16     	; 0x3de <__negsi2>
+
+000003ce <__divmodsi4_neg2>:
+ 3ce:	50 95       	com	r21
+ 3d0:	40 95       	com	r20
+ 3d2:	30 95       	com	r19
+ 3d4:	21 95       	neg	r18
+ 3d6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 3d8:	4f 4f       	sbci	r20, 0xFF	; 255
+ 3da:	5f 4f       	sbci	r21, 0xFF	; 255
+
+000003dc <__divmodsi4_exit>:
+ 3dc:	08 95       	ret
+
+000003de <__negsi2>:
+ 3de:	90 95       	com	r25
+ 3e0:	80 95       	com	r24
+ 3e2:	70 95       	com	r23
+ 3e4:	61 95       	neg	r22
+ 3e6:	7f 4f       	sbci	r23, 0xFF	; 255
+ 3e8:	8f 4f       	sbci	r24, 0xFF	; 255
+ 3ea:	9f 4f       	sbci	r25, 0xFF	; 255
+ 3ec:	08 95       	ret
+
+000003ee <__udivmodsi4>:
+ 3ee:	a1 e2       	ldi	r26, 0x21	; 33
+ 3f0:	1a 2e       	mov	r1, r26
+ 3f2:	aa 1b       	sub	r26, r26
+ 3f4:	bb 1b       	sub	r27, r27
+ 3f6:	fd 01       	movw	r30, r26
+ 3f8:	0d c0       	rjmp	.+26     	; 0x414 <__udivmodsi4_ep>
+
+000003fa <__udivmodsi4_loop>:
+ 3fa:	aa 1f       	adc	r26, r26
+ 3fc:	bb 1f       	adc	r27, r27
+ 3fe:	ee 1f       	adc	r30, r30
+ 400:	ff 1f       	adc	r31, r31
+ 402:	a2 17       	cp	r26, r18
+ 404:	b3 07       	cpc	r27, r19
+ 406:	e4 07       	cpc	r30, r20
+ 408:	f5 07       	cpc	r31, r21
+ 40a:	20 f0       	brcs	.+8      	; 0x414 <__udivmodsi4_ep>
+ 40c:	a2 1b       	sub	r26, r18
+ 40e:	b3 0b       	sbc	r27, r19
+ 410:	e4 0b       	sbc	r30, r20
+ 412:	f5 0b       	sbc	r31, r21
+
+00000414 <__udivmodsi4_ep>:
+ 414:	66 1f       	adc	r22, r22
+ 416:	77 1f       	adc	r23, r23
+ 418:	88 1f       	adc	r24, r24
+ 41a:	99 1f       	adc	r25, r25
+ 41c:	1a 94       	dec	r1
+ 41e:	69 f7       	brne	.-38     	; 0x3fa <__udivmodsi4_loop>
+ 420:	60 95       	com	r22
+ 422:	70 95       	com	r23
+ 424:	80 95       	com	r24
+ 426:	90 95       	com	r25
+ 428:	9b 01       	movw	r18, r22
+ 42a:	ac 01       	movw	r20, r24
+ 42c:	bd 01       	movw	r22, r26
+ 42e:	cf 01       	movw	r24, r30
+ 430:	08 95       	ret
+
+00000432 <_exit>:
+ 432:	f8 94       	cli
+
+00000434 <__stop_program>:
+ 434:	ff cf       	rjmp	.-2      	; 0x434 <__stop_program>
