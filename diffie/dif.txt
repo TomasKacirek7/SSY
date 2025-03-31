@@ -1,0 +1,87 @@
+#include <avr/io.h>
+#include <util/delay.h>
+#include "libs/libprintfuart.h"
+#include <stdio.h>
+
+// Parametry pro Diffie-Hellman
+#define P 23            // Menší prvo?íslo
+#define G 5             // Generátor
+
+FILE uart_str = FDEV_SETUP_STREAM(printCHAR, NULL, _FDEV_SETUP_RW);
+
+// Prototypy
+void board_init();
+uint32_t mod_exp(uint32_t base, uint32_t exp, uint32_t mod);
+void print_result(const char* label, uint32_t value);
+void USART_Transmit(unsigned char data);
+void USART_SendString(const char *str);
+
+// Inicializace serioveho rozhrani
+void board_init() {
+	UART_init(38400); // Nastaveni rychlosti UARTu, 38400 b/s
+	stdout = &uart_str; // Presmerovani STDOUT
+}
+
+// Funkce pro modularni exponentiaci (a^b mod p)
+uint32_t mod_exp(uint32_t base, uint32_t exp, uint32_t mod) {
+	uint32_t result = 1;
+	base = base % mod;  // Base modulo mod
+	printf("Start mod_exp: base = %lu, exp = %lu, mod = %lu\n\r", base, exp, mod);
+	
+	while (exp > 0) {
+		if (exp & 1) {  // Check if exp is odd
+			result = (result * base) % mod;
+			printf("Intermediate result = %lu\n\r", result);
+		}
+		exp = exp >> 1;  // exp /= 2
+		base = (base * base) % mod;
+		printf("Intermediate base = %lu, remaining exp = %lu\n\r", base, exp);
+	}
+	printf("Final result = %lu\n\r", result);
+	return result;
+}
+
+// Funkce pro tisk vysledku na seriovy port
+void print_result(const char* label, uint32_t value) {
+	printf("%s %lu\n\r", label, value);
+}
+
+int main(void) {
+	board_init();
+	_delay_ms(1000);
+
+	// Vytisteni uvodniho textu
+	printf("Diffie-Hellman Exchange\n\r");
+
+	// Parametry Diffie-Hellman
+	printf("P (prvocislo): %u\n\r", P);
+	printf("G (generator): %u\n\r", G);
+
+	// Tajne klice pro dve strany (A a B)
+	uint32_t secret_a = 6;  // Tajny klic pro uzivatele A
+	uint32_t secret_b = 15;  // Tajny klic pro uzivatele B
+
+	printf("Tajny klic A: %lu\n\r", secret_a);
+	printf("Tajny klic B: %lu\n\r", secret_b);
+
+	// Vypocet verejnych klicu
+	uint32_t public_A = mod_exp(G, secret_a, P);
+	uint32_t public_B = mod_exp(G, secret_b, P);
+
+	// Vypis verejnych klicu
+	print_result("Verejny klic A:", public_A);
+	print_result("Verejny klic B:", public_B);
+
+	// Vymena verejnych klicu (simulovano v programu)
+	uint32_t shared_key_A = mod_exp(public_B, secret_a, P);
+	uint32_t shared_key_B = mod_exp(public_A, secret_b, P);
+
+	// Vypis spolecneho tajneho klice pro kazdou stranu
+	print_result("Spolecny tajny klic A:", shared_key_A);
+	print_result("Spolecny tajny klic B:", shared_key_B);
+
+	// Konec programu
+	printf("\n\r");
+
+	return 0;
+}
