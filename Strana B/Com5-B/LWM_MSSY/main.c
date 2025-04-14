@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdarg.h>
 #include "config.h"
 #include "hal.h"
 #include "phy.h"
@@ -31,11 +32,15 @@
 typedef enum AppState_t
 {
 	APP_STATE_INITIAL,
+	APP_STATE_SEND_PUBLIC_KEY,
+	APP_STATE_WAIT_PUBLIC_KEY,
+	APP_STATE_CALCULATE_SHARED_SECRET,
 	APP_STATE_IDLE,
 } AppState_t;
 
 /*- Prototypes -------------------------------------------------------------*/
 static void appSendData(void);
+static int uart_putchar(char c, FILE *stream);
 
 void board_init();
 uint32_t mod_exp(uint32_t base, uint32_t exp, uint32_t mod);
@@ -48,7 +53,14 @@ static NWK_DataReq_t appDataReq;
 static bool appDataReqBusy = false;
 static uint8_t appDataReqBuffer[APP_BUFFER_SIZE];
 static uint8_t appUartBuffer[APP_BUFFER_SIZE];
-static uint8_t appUartBufferPtr = 0;
+volatile uint8_t appUartBufferPtr = 0;
+volatile uint8_t received_public_A = 0;
+volatile uint32_t shared_secret_b = 0;
+
+uint8_t P = 23; // P must be prime
+uint8_t G = 5;  // G is a primitive root modulo P
+uint8_t secret_b = 7;  // Tajny klic pro Boba
+uint8_t public_B;
 
 /*- Implementations --------------------------------------------------------*/
 
@@ -87,19 +99,24 @@ appDataReqBusy = true;
 *****************************************************************************/
 void HAL_UartBytesReceived(uint16_t bytes)
 {
-for (uint16_t i = 0; i < bytes; i++)
-{
-uint8_t byte = HAL_UartReadByte();
+	for (uint16_t i = 0; i < bytes; i++)
+	{
+		uint8_t byte = HAL_UartReadByte();
 
-if (appUartBufferPtr == sizeof(appUartBuffer))
-appSendData();
+		if (appUartBufferPtr == sizeof(appUartBuffer))
+		appSendData();
 
-if (appUartBufferPtr < sizeof(appUartBuffer))
-appUartBuffer[appUartBufferPtr++] = byte;
-}
+		if (appUartBufferPtr < sizeof(appUartBuffer))
+		{
+			appUartBuffer[appUartBufferPtr++] = byte;
 
-SYS_TimerStop(&appTimer);
-SYS_TimerStart(&appTimer);
+			// Vypis prijateho znaku a jeho ciselne hodnoty
+			printf("Prijaty znak: '%c' (hodnota: %u)\n\r", byte, byte);
+		}
+	}
+
+	SYS_TimerStop(&appTimer);
+	SYS_TimerStart(&appTimer);
 }
 
 /*************************************************************************//**
@@ -114,9 +131,13 @@ appSendData();
 *****************************************************************************/
 static bool appDataInd(NWK_DataInd_t *ind)
 {
-for (uint8_t i = 0; i < ind->size; i++)
-HAL_UartWriteByte(ind->data[i]);
-return true;
+	if (ind->size >= 1)
+	{
+		received_public_A = ind->data[0] - 'a'; // Prevod z ASCII na cislo
+		printf("Prijat verejny klic Alice: %u ('%c')\n\r", received_public_A, ind->data[0]);
+		appState = APP_STATE_CALCULATE_SHARED_SECRET; // Presun do stavu vypoctu sdileneho klice
+	}
+	return true;
 }
 
 /*************************************************************************//**
@@ -139,6 +160,8 @@ HAL_BoardInit();
 appTimer.interval = APP_FLUSH_TIMER_INTERVAL;
 appTimer.mode = SYS_TIMER_INTERVAL_MODE;
 appTimer.handler = appTimerHandler;
+
+public_B = mod_exp(G, secret_b, P);
 }
 
 /*************************************************************************//**
@@ -150,11 +173,33 @@ switch (appState)
 case APP_STATE_INITIAL:
 {
 appInit();
-appState = APP_STATE_IDLE;
+appState = APP_STATE_SEND_PUBLIC_KEY;
+} break;
+
+case APP_STATE_SEND_PUBLIC_KEY:
+{
+	uint8_t char_public_B = public_B + 'a';
+	appUartBuffer[0] = char_public_B;
+	appUartBufferPtr = 1;
+	appSendData();
+	printf("Odeslan verejny klic Boba: %u ('%c')\n\r", public_B, char_public_B);
+	appState = APP_STATE_WAIT_PUBLIC_KEY;
+} break;
+
+case APP_STATE_WAIT_PUBLIC_KEY:
+	// Cekame na prijeti verejneho klice od Boba (udelano v appDataInd)
+	break;
+
+case APP_STATE_CALCULATE_SHARED_SECRET:
+{
+	shared_secret_b = mod_exp(received_public_A, secret_b, P);
+	print_result("Spojeny tajny klic (Boba):", shared_secret_b);
+	appState = APP_STATE_IDLE;
 } break;
 
 case APP_STATE_IDLE:
-break;
+	// Dale probiha komunikace nebo nic
+	break;
 
 default:
 break;
@@ -163,36 +208,29 @@ break;
 
 /*************************************************************************//**
 *****************************************************************************/
+static int uart_putchar(char c, FILE *stream) {
+	if (c == '\n') {
+		HAL_UartWriteByte('\r');
+	}
+	HAL_UartWriteByte(c);
+	return 0;
+}
+
+static FILE uart_str = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
+
+/*************************************************************************//**
+*****************************************************************************/
 int main(void)
 {
+	// Presmerovani standardniho vystupu printf na UART
+	stdout = &uart_str;
 
 	// Uvodni text pro Alici
 	printf("Diffie-Hellman Exchange - Bob\n\r");
 
-	// Parametry (stejne jako u Boba)
-	uint8_t P = 23; // P must be prime
-	uint8_t G = 5;  // G is a primitive root modulo P
-	printf("P (prvocislo): %lu\n\r", P);
-	printf("G (generator): %lu\n\r", G);
-
-	// Tajny klic pro Boba
-	uint8_t secret_b = 15;  // Tajny klic pro Boba
-	printf("Tajny klic Bob: %lu\n\r", secret_b);
-
-	// Vypocet verejneho klice Alice
-	uint8_t public_B = mod_exp(G, secret_b, P);
-	print_result("Verejny klic Alice:", public_B);
-
 	SYS_Init();
 	HAL_UartInit(38400);
 
-	// Odeslani verejneho klice Alice pres UART jako ASCII znak
-	// Zajistime, ze hodnota je v rozsahu 97-122 ('a' - 'z')
-	uint32_t char_public_B = (public_B) + 'a';
-	printf("Odesilam verejny klic Boba (ASCII): %c (%u)\n\r", char_public_B, (uint8_t)char_public_B);
-	HAL_UartWriteByte(char_public_B);
-
-	
 	while (1)
 	{
 		SYS_TaskHandler();
