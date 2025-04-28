@@ -65,3 +65,9 @@ Screen terminálu Boba
 ![image](https://github.com/user-attachments/assets/e04af6d1-1f61-4cec-beaf-d5faea23b09e)
 
 Na těchto screenech vidíme výměnu klíčů a následné vytvoření společného klíče.
+
+Alice a její parametry ![image](https://github.com/user-attachments/assets/3dc1a10c-e60b-4d89-92c1-ca68ab74d291)
+
+Bob a jeho parametry ![image](https://github.com/user-attachments/assets/ed5270ff-e6fd-42d3-90f1-e391a497fcad)
+
+
