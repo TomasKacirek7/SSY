@@ -57,3 +57,7 @@ Pro kompilaci a nahrání tohoto kódu na mikrokontrolér AVR budete potřebovat
 * Implementovaná výměna klíčů není chráněna proti útokům typu man-in-the-middle. Pro zabezpečení komunikace by bylo nutné implementovat mechanismy pro autentizaci veřejných klíčů.
 
 Tento projekt poskytuje základní implementaci Diffie-Hellman výměny klíčů v kontextu bezdrátové komunikace s využitím LWM frameworku pro AVR mikrokontroléry. Může sloužit jako výchozí bod pro další vývoj zabezpečených bezdrátových aplikací.
+
+![image](https://github.com/user-attachments/assets/02207bc0-e2e2-4499-9d39-8d0294ffe4af)
+
+![image](https://github.com/user-attachments/assets/e04af6d1-1f61-4cec-beaf-d5faea23b09e)
