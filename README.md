@@ -58,6 +58,10 @@ Pro kompilaci a nahrání tohoto kódu na mikrokontrolér AVR budete potřebovat
 
 Tento projekt poskytuje základní implementaci Diffie-Hellman výměny klíčů v kontextu bezdrátové komunikace s využitím LWM frameworku pro AVR mikrokontroléry. Může sloužit jako výchozí bod pro další vývoj zabezpečených bezdrátových aplikací.
 
+Screen terminálu Alice
 ![image](https://github.com/user-attachments/assets/02207bc0-e2e2-4499-9d39-8d0294ffe4af)
 
+Screen terminálu Boba
 ![image](https://github.com/user-attachments/assets/e04af6d1-1f61-4cec-beaf-d5faea23b09e)
+
+Na těchto screenech vidíme výměnu klíčů a následné vytvoření společného klíče.
