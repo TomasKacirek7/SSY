@@ -74,6 +74,7 @@ Bob a jeho parametry ![image](https://github.com/user-attachments/assets/65e8308
 
 ## Limity a omezení aplikace
 P, G, secret_a i received_public_B jsou typu uint8_t ⇒ maximálně 255.
+
 public_A a shared_secret_a jsou typu uint32_t ⇒ maximálně 2^32 - 1 = 4 294 967 295.
 
 Tyto hodnoty jsou velmi poddimenzované z důvodu rychlého otestování správnosti výpočtu. 
